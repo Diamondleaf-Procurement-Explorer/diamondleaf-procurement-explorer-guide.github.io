@@ -1,101 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diamondleaf Public Procurement Explorer — Onboarding</title>
-<style>
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 1.5rem;
-    color: #1f2937;
-
-    /* Layered background */
-    background:
-      linear-gradient(
-        rgba(255, 255, 255, 0.92),
-        rgba(255, 255, 255, 0.92)
-      ),
-      url("assets/images/cascade-clouds-cool-wallpaper-210186.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
-  h1, h2 {
-    line-height: 1.25;
-  }
-
-  p, ul {
-    max-width: 72ch;
-  }
-
-  .note {
-    background: rgba(243, 244, 246, 0.85);
-    padding: 1rem;
-    border-left: 4px solid #9ca3af;
-    margin: 1.5rem 0;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Diamondleaf Procurement Explorer Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #1F3A93;
+    }
+    p {
+      margin-bottom: 16px;
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 12px;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Diamondleaf Public Procurement Explorer</h1>
-  <p>
-    This page provides orientation and guidance for understanding the analytics
-    presented in the Diamondleaf Public Procurement Explorer.
-  </p>
+<h1>Diamondleaf Procurement Explorer</h1>
 
-  <h2>What this explorer shows</h2>
-  <p>
-    The Explorer aggregates and visualizes publicly available European public
-    procurement notices, enabling structured analysis across countries,
-    sectors, and procurement procedures.
-  </p>
+<h2>What this explorer shows</h2>
+<p>
+The Diamondleaf Public Procurement Explorer provides structured visibility into
+public procurement activity across multiple domains, including EU tenders and
+related datasets. It is designed to help users explore patterns, identify
+opportunities, and understand procurement dynamics without needing to work
+directly with raw source data.
+</p>
 
-  <div class="note">
-    The data reflects what has been published in official procurement systems.
-    It does not represent real-time contract execution or financial settlement.
-  </div>
+<p>
+The focus is on making complex procurement data easier to navigate and interpret,
+while maintaining a clear link back to the original published information.
+</p>
 
-  <h2>How to read the analytics</h2>
-  <p>
-    Procurement processes consist of multiple notice types (e.g. planning,
-    contract award, modification). Dashboards may therefore reflect different
-    stages of the same procurement lifecycle.
-  </p>
-  <p>
-    Aggregated figures should be interpreted as indicators of activity and
-    structure, not as exact financial totals.
-  </p>
+<h2>Data domains and reference layers</h2>
 
-  <h2>Navigation overview</h2>
-  <ul>
-    <li>Use filters to scope results by country, sector, or procedure</li>
-    <li>Dashboards are grouped by notice and form type</li>
-    <li>Hover and drill-down features reveal additional context</li>
-  </ul>
+<p>
+The Diamondleaf Public Procurement Explorer is built on multiple source-aligned
+schemas that combine procurement data, supporting reference data, and legal or
+statistical context. Together, these layers make it possible to move from raw
+published notices to more structured interpretation, while preserving
+traceability to the original source systems.
+</p>
 
-  <h2>Limitations & caveats</h2>
-  <p>
-    Public procurement data is subject to reporting practices, legal constraints,
-    and publication delays. Differences between dashboards may reflect regulatory
-    structure rather than inconsistencies.
-  </p>
+<p>
+Some schemas contain operational procurement data, such as notices and related
+market information. Others provide the supporting structure needed to interpret
+that data correctly, including code lists, business term definitions, API field
+references, legal field mappings, classification systems, and statistical
+indicators. This separation helps keep the platform transparent: users can work
+with higher-level analytics while still understanding the underlying field
+logic and source context.
+</p>
 
-  <h2>Further resources</h2>
-  <ul>
-    <li><a href="https://github.com/Diamondleaf-Procurement-Explorer/diamondleaf-public-procurement-analytics-catalog" target="_blank">
-      Analytics catalog (GitHub)</a></li>
-  </ul>
+<ul>
+  <li>
+    <strong>DIAMONDLEAF_PLATFORM_DATA_QUALITY_AND_SYSTEM_STATE</strong><br>
+    Provides operational context about the platform itself, including data
+    availability, completeness, and system status indicators. It helps users
+    understand how current and reliable the underlying datasets are and whether
+    any data-quality limitations may affect interpretation.
+  </li>
 
-  <footer>
-    © Diamondleaf — This onboarding guide is provided for explanatory purposes.
-  </footer>
+  <li>
+    <strong>ENTERPRISE_EUROPE_NETWORK</strong><br>
+    Contains company profiles, partnership opportunities, and related market
+    signals. This layer complements procurement data by adding broader visibility
+    into organizations and cross-border business activity.
+  </li>
+
+  <li>
+    <strong>TENDERS_ELECTRONIC_DAILY</strong><br>
+    Represents EU public procurement notices, including procedures, contract
+    awards, and related metadata. This is the core procurement dataset within
+    the Explorer.
+  </li>
+
+  <li>
+    <strong>NORTH_ATLANTIC_TREATY_ORGANIZATION</strong><br>
+    Includes procurement-related data connected to NATO activity, extending
+    coverage beyond EU civilian procurement into international contracting
+    environments.
+  </li>
+
+  <li>
+    <strong>EU_NOTICES_CODELIST_REFERENCE_DATA</strong><br>
+    Contains standardized code lists such as procedure types and classification
+    values, supporting consistent filtering and interpretation across datasets.
+  </li>
+
+  <li>
+    <strong>EU_NOTICES_BUSINESS_TERM_FIELD_LIST_REFERENCE_DATA</strong><br>
+    Provides official business terms from the eForms SDK, linking procurement
+    concepts to their technical field representation.
+  </li>
+
+  <li>
+    <strong>EU_NOTICES_API_FIELD_REFERENCE_DATA</strong><br>
+    Documents source API fields, including naming and structure, supporting
+    transparency and traceability to original data sources.
+  </li>
+
+  <li>
+    <strong>REGULATORY_AND_LEGAL_FIELD_REFERENCE_DATA</strong><br>
+    Connects data fields to legal and regulatory definitions, supporting
+    compliance and interpretation in a governance context.
+  </li>
+
+  <li>
+    <strong>STATISTICAL_CLASSIFICATION_NOMENCLATURES</strong><br>
+    Includes classification systems such as CPV, NACE, and NUTS, enabling
+    consistent categorization across sectors and regions.
+  </li>
+
+  <li>
+    <strong>STATISTICAL_INDICATORS</strong><br>
+    Contains derived metrics and indicators that summarize patterns and trends,
+    supporting higher-level analysis without requiring manual calculations.
+  </li>
+</ul>
+
+<h2>How to read the analytics</h2>
+<p>
+The analytics are designed to highlight patterns and relationships rather than
+provide definitive answers. Users are encouraged to interpret results in context,
+taking into account data completeness, classification differences, and potential
+gaps in reporting.
+</p>
+
+<p>
+Where possible, metrics are derived consistently across datasets, but differences
+in source structures and publication practices may still influence outcomes.
+</p>
+
+<h2>Navigation</h2>
+<p>
+Use filters and selection options to refine the dataset according to your needs.
+Most views are interactive and allow for drilling down into more detailed levels
+of information.
+</p>
+
+<h2>Limitations</h2>
+<p>
+The platform reflects publicly available data and is subject to the limitations
+of those sources. Not all procurement activity is fully captured or consistently
+reported across regions or time periods.
+</p>
+
+<p>
+Users should treat the outputs as indicative rather than exhaustive and consider
+additional validation where necessary.
+</p>
+
+<h2>Further resources</h2>
+<p>
+For additional details, including technical documentation and data mappings,
+please refer to the project repositories and supporting materials.
+</p>
 
 </body>
 </html>
